@@ -1,0 +1,27 @@
+.dropzone {
+  position: relative;
+  border: 1px dashed rgba(0, 229, 195, 0.28);
+  background:
+    radial-gradient(circle at top, rgba(0, 229, 195, 0.08), transparent 48%),
+    rgba(255, 255, 255, 0.02);
+  transition:
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.dropzone:hover,
+.dropzoneActive {
+  border-color: rgba(0, 229, 195, 0.56);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 229, 195, 0.18);
+}
+
+.terminal {
+  max-height: 280px;
+  overflow: auto;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(2, 7, 17, 0.92);
+  font-family: 'JetBrains Mono', monospace;
+}
