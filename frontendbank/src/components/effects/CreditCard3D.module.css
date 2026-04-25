@@ -1,0 +1,71 @@
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.surface {
+  position: relative;
+  min-height: 260px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 229, 195, 0.18);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(57, 255, 20, 0.16), transparent 38%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+    linear-gradient(180deg, rgba(13, 22, 38, 0.92), rgba(5, 11, 24, 0.98));
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: rotateX(-7deg) rotateY(10deg);
+  transform-origin: center;
+  animation: cardOrbit 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.shine {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--shine-x, 20%) var(--shine-y, 20%), rgba(255, 255, 255, 0.2), transparent 28%);
+  opacity: 0.9;
+  transition: background-position 260ms ease;
+}
+
+:global(:root[data-theme='aurora']) .surface {
+  border: 1px solid rgba(0, 118, 245, 0.28);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 229, 195, 0.22), transparent 40%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(223, 236, 252, 0.9)),
+    linear-gradient(180deg, rgba(250, 253, 255, 0.96), rgba(228, 238, 252, 0.98));
+  box-shadow:
+    0 20px 42px rgba(16, 35, 63, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+:global(:root[data-theme='aurora']) .shine {
+  background: radial-gradient(
+    circle at var(--shine-x, 58%) var(--shine-y, 28%),
+    rgba(255, 255, 255, 0.5),
+    transparent 36%
+  );
+  opacity: 0.75;
+}
+
+@keyframes cardOrbit {
+  0% {
+    transform: rotateX(-7deg) rotateY(10deg);
+  }
+  25% {
+    transform: rotateX(-4deg) rotateY(14deg);
+  }
+  50% {
+    transform: rotateX(-8deg) rotateY(6deg);
+  }
+  75% {
+    transform: rotateX(-5deg) rotateY(12deg);
+  }
+  100% {
+    transform: rotateX(-7deg) rotateY(10deg);
+  }
+}

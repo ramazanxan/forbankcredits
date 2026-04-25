@@ -1,0 +1,18 @@
+services:
+  api: # Бэкенд
+    image: node:20 # Или python, или go
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: npm run dev # Команда запуска бэкенда
+    ports:
+      - "8000:8000"
+
+  web: # Фронтенд
+    image: node:20
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: npm start # Команда запуска фронтенда
+    ports:
+      - "5173:5173"

@@ -1,0 +1,5 @@
+.canvas {
+  height: 100%;
+  width: 100%;
+  filter: saturate(1.2) brightness(1.05);
+}
